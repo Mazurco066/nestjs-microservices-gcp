@@ -1,14 +1,14 @@
 // Validation rules
-import { IsDateString, IsString, IsNotEmpty } from 'class-validator'
+import { IsDate, IsString, IsNotEmpty } from 'class-validator'
 import { Type } from 'class-transformer'
 
 // Requested fields for reservation operations
 export class CreateReservationDto {
-  @IsDateString({}, { message: '"startDate" mest be on "YYYY-MM-DD" format' })
+  @IsDate({ message: '"startDate" must be on "YYYY-MM-DD" format' })
   @Type(() => Date)
   startDate: Date
 
-  @IsDateString({}, { message: '"endDate" mest be on "YYYY-MM-DD" format' })
+  @IsDate({ message: '"endDate" must be on "YYYY-MM-DD" format' })
   @Type(() => Date)
   endDate: Date
 

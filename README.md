@@ -24,12 +24,25 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Study project using [Nest](https://github.com/nestjs/nest) to create a microservice structured API using mongoDb and TCP. 
 
 ## Installation
 
 ```bash
 $ yarn install
+```
+
+## Dockerization
+
+Run all the services from docker-compose using the command
+```bash
+docker-compose up --build -d
+```
+
+Or you can run the command from service folder like this
+```bash
+docker build ../../ -f Dockerfile -t sleepr_reservations
+docker run sleepr_reservations
 ```
 
 ## Running the app
@@ -64,9 +77,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Gabriel Mazurco](https://mazurco066.github.io)
 
 ## License
 
