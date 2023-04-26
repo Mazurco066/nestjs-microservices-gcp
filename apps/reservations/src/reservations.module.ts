@@ -1,5 +1,7 @@
 // Dependencies
 import { Module } from '@nestjs/common'
+import { ConfigModule } from '@nestjs/config'
+import * as Joi from 'joi'
 import { ReservationsController } from './reservations.controller'
 import { ReservationsService } from './reservations.service'
 
@@ -17,7 +19,13 @@ import { DatabaseModule, LoggerModule } from '@app/common'
     DatabaseModule.forFeature([
       { name: ReservationDocument.name, schema: ReservationSchema }
     ]),
-    LoggerModule
+    LoggerModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      validationSchema: Joi.object({
+        MONGODB_URI: Joi.string().required()
+      })
+    })
   ],
   controllers: [ReservationsController],
   providers: [
