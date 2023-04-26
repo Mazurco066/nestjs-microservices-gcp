@@ -10,6 +10,8 @@ import { UsersModule } from './users/users.module'
 
 // Logger module
 import { LoggerModule } from '@app/common'
+import { LocalStategy } from './strategies/local.strategy' // LocalStrategy -> LocalStategy
+import { JwtStrategy } from './strategies/jwt.strategy'
 
 // Setup module
 @Module({
@@ -35,7 +37,7 @@ import { LoggerModule } from '@app/common'
     })
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, LocalStategy, JwtStrategy],
 })
 
 // Exports auth module

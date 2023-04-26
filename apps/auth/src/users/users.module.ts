@@ -17,7 +17,8 @@ import { UserDocument, UserSchema } from './models'
     ])
   ],
   controllers: [UsersController],
-  providers: [UsersService, UsersRepository]
+  providers: [UsersService, UsersRepository],
+  exports: [UsersService]
 })
 
 // Exports users module

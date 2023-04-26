@@ -20,7 +20,7 @@ services:
       target: development
     command: yarn start:dev auth
     env_file:
-      - ./app/auth/.env
+      - ./apps/auth/.env
     ports:
       - '3001:3001'
     volumes:
