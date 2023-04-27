@@ -14,6 +14,9 @@ RUN yarn install
 COPY apps/auth apps/auth
 COPY libs libs
 
+# Install specific module dependencies
+RUN cd apps/auth && yarn install
+
 RUN yarn build
 
 # Production setup

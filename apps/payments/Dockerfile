@@ -14,6 +14,9 @@ RUN yarn install
 COPY apps/payments apps/payments
 COPY libs libs
 
+# Install specific module dependencies
+RUN cd apps/payments && yarn install
+
 RUN yarn build
 
 # Production setup

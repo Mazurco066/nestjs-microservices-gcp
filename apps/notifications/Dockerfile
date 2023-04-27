@@ -14,6 +14,9 @@ RUN yarn install
 COPY apps/notifications apps/notifications
 COPY libs libs
 
+# Install specific module dependencies
+RUN cd apps/notifications && yarn install
+
 RUN yarn build
 
 # Production setup
