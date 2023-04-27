@@ -5,12 +5,14 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY yarn.lock ./
+COPY tsconfig.json tsconfig.json
 
 # RUN npm i -g yarn
 
 RUN yarn install
 
-COPY . .
+COPY apps/reservations apps/reservations
+COPY libs libs
 
 RUN yarn build
 
