@@ -1,6 +1,7 @@
 // Validation rules
-import { IsDate, IsString, IsNotEmpty } from 'class-validator'
+import { IsDate, IsDefined, IsNotEmptyObject, ValidateNested } from 'class-validator'
 import { Type } from 'class-transformer'
+import { CreateChargeDto } from '@app/common'
 
 // Requested fields for reservation operations
 export class CreateReservationDto {
@@ -12,11 +13,9 @@ export class CreateReservationDto {
   @Type(() => Date)
   endDate: Date
 
-  @IsString({ message: '"placeId" must be a valid String' })
-  @IsNotEmpty({ message: '"placeId" must not be empty' })
-  placeId: string
-
-  @IsString({ message: '"invoiceId" must be a valid String' })
-  @IsNotEmpty({ message: '"invoiceId" must not be empty' })
-  invoiceId: string
+  @IsDefined({ message: '"charge" must be defined' })
+  @IsNotEmptyObject({}, { message: '"charge" must not be empty' })
+  @ValidateNested()
+  @Type(() => CreateChargeDto)
+  charge: CreateChargeDto
 }

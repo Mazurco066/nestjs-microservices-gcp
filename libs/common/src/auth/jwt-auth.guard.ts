@@ -1,8 +1,8 @@
 // Dependencies
 import { CanActivate, ExecutionContext, Inject, Injectable } from '@nestjs/common'
 import { ClientProxy } from '@nestjs/microservices'
-import { Observable, tap } from 'rxjs'
-import { defaultIfEmpty } from 'rxjs/operators'
+import { Observable, of, tap } from 'rxjs'
+import { catchError, map } from 'rxjs/operators'
 import { AUTH_SERVICE } from '../constants'
 
 // Reusable microservices auth guard
@@ -22,10 +22,11 @@ export class JwtAuthGuard implements CanActivate {
     return this.authClient.send('authenticate', {
       Authentication: jwt
     }).pipe(
-      defaultIfEmpty([]),
       tap((res) => {
         context.switchToHttp().getRequest().user = res
-      })
+      }),
+      map(() => true),
+      catchError(() => of(false))
     )
   }
 }
