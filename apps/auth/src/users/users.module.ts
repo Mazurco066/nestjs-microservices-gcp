@@ -6,7 +6,7 @@ import { UsersRepository } from './users.repository'
 
 // Database modules
 import { DatabaseModule } from '@app/common'
-import { UserDocument, UserSchema } from './models'
+import { UserDocument, UserSchema } from '@app/common'
 
 // Setup module
 @Module({

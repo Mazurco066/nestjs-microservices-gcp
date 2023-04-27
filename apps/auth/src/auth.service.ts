@@ -1,6 +1,6 @@
 // Dependencies
 import { Injectable } from '@nestjs/common'
-import { UserDocument } from './users/models'
+import { UserDocument } from '@app/common'
 import { Response } from 'express'
 import { ConfigService } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'

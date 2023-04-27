@@ -5,7 +5,6 @@ import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { UsersService } from '../users/users.service'
 import { TokenPayload } from '../interfaces/token-payload.interface'
-import { Request } from 'express'
 
 // JWT Strategy
 @Injectable()
@@ -16,7 +15,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request: Request) => request?.cookies?.Authentication
+        (request: any) => 
+          request?.cookies?.Authentication || request?.Authentication
       ]),
       ignoreExpiration: false,
       secretOrKey: configService.get<string>('JWT_SECRET')

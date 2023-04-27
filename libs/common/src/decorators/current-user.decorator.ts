@@ -1,6 +1,6 @@
 // Dependencies
 import { ExecutionContext, createParamDecorator } from '@nestjs/common'
-import { UserDocument } from './users/models'
+import { UserDocument } from '../models'
 
 // Get user by context function
 const getCurrentUserByContext = (context: ExecutionContext): UserDocument => {
