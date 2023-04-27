@@ -44,7 +44,8 @@ import { AUTH_SERVICE, DatabaseModule, LoggerModule, PAYMENTS_SERVICE } from '@a
           }
         }),
         inject: [ConfigService]
-      }, {
+      },
+      {
         name: PAYMENTS_SERVICE,
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
