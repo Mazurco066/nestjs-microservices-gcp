@@ -5,4 +5,7 @@ export class NotifyEmailDto {
   @IsString({ message: '"email" must be a valid string' })
   @IsEmail({}, { message: '"email" must be a valid E-mail address' })
   email: string
+
+  @IsString({ message: '"text" must be a valid string' })
+  text: string
 }
