@@ -49,7 +49,7 @@ docker run sleepr_reservations
 
 To run the tests go into ```e2e``` folder and run
 ```bash
-docker build -t e2e
+docker build -t e2e .
 docker run e2e
 docker-compose up e2e
 ```
