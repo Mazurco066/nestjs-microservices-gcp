@@ -9,7 +9,7 @@ import { AuthService } from './auth.service'
 import { UsersModule } from './users/users.module'
 
 // Logger module
-import { LoggerModule } from '@app/common'
+import { HealthModule, LoggerModule } from '@app/common'
 
 // JWT strategies
 import { LocalStategy } from './strategies/local.strategy' // LocalStrategy -> LocalStategy
@@ -38,7 +38,8 @@ import { JwtStrategy } from './strategies/jwt.strategy'
         }
       }),
       inject: [ConfigService]
-    })
+    }),
+    HealthModule
   ],
   controllers: [AuthController],
   providers: [AuthService, LocalStategy, JwtStrategy],

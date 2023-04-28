@@ -5,7 +5,7 @@ import { CreateReservationDto } from './dto/create-reservation.dto'
 import { UpdateReservationDto } from './dto/update-reservation.dto'
 
 // Common auth guard
-import { JwtAuthGuard, CurrentUser, UserDto } from '@app/common'
+import { JwtAuthGuard, CurrentUser, UserDto, Roles } from '@app/common'
 
 @Controller('reservations')
 export class ReservationsController {
@@ -40,6 +40,7 @@ export class ReservationsController {
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard)
+  @Roles('admin')
   async remove(@Param('id') id: string) {
     return this.reservationsService.remove(id)
   }

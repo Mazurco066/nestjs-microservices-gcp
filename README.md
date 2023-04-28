@@ -45,6 +45,15 @@ docker build ../../ -f Dockerfile -t sleepr_reservations
 docker run sleepr_reservations
 ```
 
+## Testing
+
+To run the tests go into ```e2e``` folder and run
+```bash
+docker build -t e2e
+docker run e2e
+docker-compose up e2e
+```
+
 ## Running the app
 
 ```bash

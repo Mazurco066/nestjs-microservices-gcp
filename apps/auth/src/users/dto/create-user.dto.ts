@@ -1,5 +1,5 @@
 // Validation rules
-import { IsString, IsEmail, IsNotEmpty, IsStrongPassword } from 'class-validator'
+import { IsOptional, IsString, IsEmail, IsNotEmpty, IsStrongPassword, IsArray } from 'class-validator'
  
 export class CreateUserDto {
   @IsString({ message: '"email" must be a String' })
@@ -16,4 +16,10 @@ export class CreateUserDto {
     minLowercase: 1
   }, { message: '"password" must contains at least 8 characters (including 1 Uppercase, 1 Sumbol, and 1 Number)' })
   password: string
+
+  @IsOptional()
+  @IsArray({ message: '"roles" must be an Array' })
+  @IsString({ each: true, message: '"roles" value must be a String' })
+  @IsNotEmpty({ each: true, message: '"roles" value must not be empty' })
+  roles?: string[]
 }

@@ -11,7 +11,13 @@ import { ReservationDocument, ReservationSchema } from './models'
 import { ReservationsRepository } from './reservations.repository'
 
 // Core modules
-import { AUTH_SERVICE, DatabaseModule, LoggerModule, PAYMENTS_SERVICE } from '@app/common'
+import {
+  AUTH_SERVICE,
+  DatabaseModule,
+  HealthModule,
+  LoggerModule,
+  PAYMENTS_SERVICE
+} from '@app/common'
 
 // Setting up dependency injection
 @Module({
@@ -56,7 +62,8 @@ import { AUTH_SERVICE, DatabaseModule, LoggerModule, PAYMENTS_SERVICE } from '@a
         }),
         inject: [ConfigService]
       }
-    ])
+    ]),
+    HealthModule
   ],
   controllers: [ReservationsController],
   providers: [
